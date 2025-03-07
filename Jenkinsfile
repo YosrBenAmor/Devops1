@@ -20,11 +20,11 @@ pipeline {
             }
         }
 
-        stage('MVN Nexus') {
-            steps {
-                sh 'mvn deploy -Dmaven.test.skip=true'
-            }
-        }
+        // stage('MVN Nexus') {
+        //     steps {
+        //         sh 'mvn deploy -Dmaven.test.skip=true'
+        //     }
+        // }
 
         stage('Building Image') {
             steps {
