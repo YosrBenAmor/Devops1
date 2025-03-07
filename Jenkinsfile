@@ -20,9 +20,9 @@ pipeline {
             }
         }
 
-        stage('MVN Nexus') {
+        stage('MVN Nexis') {
             steps {
-                sh 'mvn deploy -Dmaven.test.skip=true'
+                sh 'mvn deploy -Dmaven.test.skip=true '
             }
         }
 
