@@ -26,20 +26,20 @@ pipeline {
             }
         }
 
-        stage('Building Image') {
-            steps {
-                sh 'docker build -t yosrba/timesheet-devops:1.0.0 .'
-            }
-        }
+        // stage('Building Image') {
+        //     steps {
+        //         sh 'docker build -t yosrba/timesheet-devops:1.0.0 .'
+        //     }
+        // }
 
-        stage('Deploy Image') {
-            steps {
-                script {
-                    sh 'docker push yosrba/timesheet-devops:1.0.0'
+        // stage('Deploy Image') {
+        //     steps {
+        //         script {
+        //             sh 'docker push yosrba/timesheet-devops:1.0.0'
                          
-                }
-            }
-        }
+        //         }
+        //     }
+        // }
 
         /* stage('MVN Sonarqube') {
             steps {
