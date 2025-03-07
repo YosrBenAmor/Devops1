@@ -20,11 +20,11 @@ pipeline {
             }
         }
 
-        // stage('MVN Nexus') {
-        //     steps {
-        //         sh 'mvn deploy -Dmaven.test.skip=true'
-        //     }
-        // }
+        stage('MVN Nexus') {
+            steps {
+                sh 'mvn deploy -Dmaven.test.skip=true'
+            }
+        }
 
         stage('Building Image') {
             steps {
@@ -35,9 +35,8 @@ pipeline {
         stage('Deploy Image') {
             steps {
                 script {
-                    // Login to Docker Hub and push the image
-                    sh '''docker login -u yosrba -p ${DOCKER_PASSWORD}
-                          docker push yosrba/timesheet-devops:1.0.0'''
+                    sh 'docker push yosrba/timesheet-devops:1.0.0'
+                         
                 }
             }
         }
