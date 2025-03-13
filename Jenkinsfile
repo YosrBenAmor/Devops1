@@ -33,7 +33,7 @@ pipeline {
 
         stage('Deploy Image') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'af81cd12-2086-4651-80e9-0683e29afdc2', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
                 }
                 sh 'docker push yosrba/timesheet-devops:1.0.0'
