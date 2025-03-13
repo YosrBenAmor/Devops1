@@ -21,7 +21,7 @@ pipeline {
 
         stage('MVN Nexus') {
             steps {
-                sh 'mvn deploy -Dmaven.test.skip=true '
+                sh 'mvn deploy -Dmaven.test.skip=true'
             }
         }
 
@@ -33,6 +33,9 @@ pipeline {
 
         stage('Deploy Image') {
             steps {
+                withCredentials([usernamePassword(credentialsId: 'af81cd12-2086-4651-80e9-0683e29afdc2', usernameVariable: 'yosrba', passwordVariable: 'yosrbenamor')]) {
+                    sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
+                }
                 sh 'docker push yosrba/timesheet-devops:1.0.0'
             }
         }
