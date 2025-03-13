@@ -33,7 +33,6 @@ pipeline {
 
         stage('Deploy Image') {
             steps {
-                sh 'docker login'
                 sh 'docker push yosrba/timesheet-devops:1.0.0'
             }
         }
