@@ -21,9 +21,9 @@ pipeline {
             }
         }
 
-        stage('MVN Sonarqube') {
+        stage('MVN Nexus') {
              steps {
-                 sh 'mvn sonar:sonar  -Dsonar.token=sqa_d8e839e59109540e88a52e6f9c11cc093c9c1985 -Dmaven.test.skip=true'
+                 sh 'mvn deploy  -Dmaven.test.skip=true'
              }
          }
          
