@@ -25,7 +25,7 @@ pipeline {
             }
         }
 
-      /*  stage('Building image') {
+        stage('Building image') {
             steps {
                 sh 'docker build -t yosrba/timesheet-devops:1.0.0 .'
             }
@@ -38,6 +38,6 @@ pipeline {
                 }
                 sh 'docker push yosrba/timesheet-devops:1.0.0'
             }
-        }*/
+        }
     }
 }
